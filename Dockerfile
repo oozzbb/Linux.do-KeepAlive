@@ -3,6 +3,14 @@ FROM python:alpine3.20
 RUN apk add chromium && \
     apk add chromium-chromedriver
 
+ENV LINUXDO_USERNAME= \
+    LINUXDO_PASSWORD= \
+    SCROLL_DURATION=0 \
+    VIEW_COUNT=1000 \
+    HOME_URL=https://linux.do/ \
+    CONNECT_URL=https://connect.linux.do/ \    
+    TZ=Asia/Shanghai    
+
 WORKDIR /app
 
 COPY . /app
