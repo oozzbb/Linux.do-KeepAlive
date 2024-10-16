@@ -1,12 +1,1 @@
-selenium
-shutil
-logging
-random
-base64
-hashlib
-hmac
-json
-re
-threading
-smtplib
 requests
