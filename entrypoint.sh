@@ -27,6 +27,6 @@ if [ -n $CRON_RULE ]; then
     echo "$CRON_RULE /app/entrypoint.sh 2>&1" > /var/spool/cron/crontabs/root
 fi
 
-python Linux.do.py
+python /app/Linux.do.py
 
 exec "$@"
