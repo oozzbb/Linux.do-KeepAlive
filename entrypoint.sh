@@ -14,19 +14,20 @@ trap 'error_handler' ERR
 
 # 校验环境变量参数，对部分必要参数进行校验
 if [ -z $LINUXDO_USERNAME ]; then
-    echo "[$(date +'% Y-% m-% d % H:% M:% S')] [ERROR] 缺少 LINUXDO_USERNAME"
+    echo "[$(date +'% Y-% m-% d % H:% M:% S')] [ERROR] 缺少 LINUXDO_USERNAME。"
     exit 1
 fi
 
 if [ -z $LINUXDO_PASSWORD ]; then
-    echo "[$(date +'% Y-% m-% d % H:% M:% S')] [ERROR] 缺少 LINUXDO_PASSWORD"
+    echo "[$(date +'% Y-% m-% d % H:% M:% S')] [ERROR] 缺少 LINUXDO_PASSWORD。"
     exit 1
 fi
 
 if [ -n $CRON_RULE ]; then
-    echo "$CRON_RULE /app/entrypoint.sh 2>&1" > /var/spool/cron/crontabs/root
+    echo "$CRON_RULE /app/execute.sh 2>&1" > /var/spool/cron/crontabs/root
 fi
 
-python /app/Linux.do.py
+
+./execute.sh
 
 exec "$@"
