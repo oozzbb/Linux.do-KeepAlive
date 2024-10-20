@@ -1,6 +1,6 @@
 FROM python:alpine3.20
 
-RUN echo '0 8 * * * /app/entrypoint.sh 2>&1' > /var/spool/cron/crontabs/root && \
+RUN echo '0 8 * * * /app/execute.sh 2>&1' > /var/spool/cron/crontabs/root && \
     apk add chromium && \
     apk add chromium-chromedriver
 
@@ -19,7 +19,7 @@ COPY . /app
  
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN chmod +x /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh && chmod +x /app/execute.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 
