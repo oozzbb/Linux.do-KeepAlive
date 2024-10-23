@@ -23,10 +23,13 @@ if [ -z "$LINUXDO_PASSWORD" ]; then
     exit 1
 fi
 
+if [ -n "$PROXY" ]; then
+    export https_proxy=$PROXY http_proxy=$PROXY all_proxy=$PROXY
+fi
+
 if [ -n "$CRON_RULE" ]; then
     echo "$CRON_RULE /app/execute.sh 2>&1" > /var/spool/cron/crontabs/root
 fi
-
 
 ./execute.sh
 
