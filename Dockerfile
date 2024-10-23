@@ -10,7 +10,8 @@ ENV LINUXDO_USERNAME= \
     VIEW_COUNT=1000 \
     HOME_URL=https://linux.do/ \
     CONNECT_URL=https://connect.linux.do/ \    
-    CRON_RULE= \    
+    CRON_RULE= \
+    PROXY= \
     TZ=Asia/Shanghai    
 
 WORKDIR /app
